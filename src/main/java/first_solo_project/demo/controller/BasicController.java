@@ -1,22 +1,23 @@
 package first_solo_project.demo.controller;
 
-import first_solo_project.demo.member.Member;
-import first_solo_project.demo.member.MemberRepository;
-import first_solo_project.demo.member.MemberService;
-import first_solo_project.demo.member.MemberServiceImpl;
+import first_solo_project.demo.AppConfig;
+import first_solo_project.demo.member.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class BasicController {
 
-    MemberService ms=new MemberServiceImpl(new MemberRepository());
+    ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+    MemberServiceImpl ms=ac.getBean("memberService",MemberServiceImpl.class);
+//    MemberRepository mr = ac.getBean("memberRepository",MemberRepository.class);
 
     @GetMapping("hello")
     public String hello(Model model) {
@@ -31,42 +32,12 @@ public class BasicController {
         mem.setName(id);
         model.addAttribute("id",id);
         if(ms.join(mem)==false){
+
+            System.out.println("error로");
             return "error";
         }
+        System.out.println(ms.join(mem)+" "+ms.sizeOfStore()+"q2로");
         return "question2";
     }
 
 }
-//    }
-//    @GetMapping("hello-mvc")
-//    public String helloMvc(@RequestParam("name") String name, Model model){
-//        model.addAttribute("name",name);
-//        return "hello-template";
-//    }
-//    @GetMapping("hello-string")
-//    @ResponseBody
-//    public String helloString(@RequestParam("name") String name){
-//        return "hello"+ name;
-//    }
-//
-//    @GetMapping("hello-api")//
-//    @ResponseBody
-//    public Hello helloApu(@RequestParam("name")String name)
-//    {
-//        Hello hello=new Hello();
-//        hello.setName(name);
-//        return hello;
-//
-//    }
-//    static class Hello{
-//        private String name;
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String name) {
-//            this.name = name;
-//        }
-//    }
-//}
