@@ -116,24 +116,3 @@ button {
 }
 
 
-
-.content {
-  font-family: system-ui, serif;
-  font-size: 2rem;
-  padding: 3rem;
-  border-radius: 1rem;
-  background: #ff6e6c;
-}
-body {
-  margin: 0;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: plum;
-}
-
-

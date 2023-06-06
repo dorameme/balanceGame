@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="all.css"/>
+</head>
+<body>
+<p th:text="${id}+'님이 오랜만에 아주아주 꾸미고 밖에 나갔는데...'"><br></p>
+
+
+
+<div class="cd-switch">
+
+    <div class="switchUp">
+    <h1>
+        오랜만에 아주아주 꾸미고 밖에 나갔는데...<br>
+    </h1>
+        <h2>
+            1. 같은 옷을 입은 사람 50명을 길가면서 마주침<br>
+            2. 정말 맘에 안드는 이성이 번호를 5번씩이나 물어봄<br>
+        </h2>
+
+    </div>
+    <div class="switch">
+        <input type="radio" name="choice" id="yes" checked>
+        <label for="yes">1번</label>
+        <input type="radio" name="choice" id="no">
+        <label for="no">2번</label>
+        <span class="switchFilter"></span>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
+

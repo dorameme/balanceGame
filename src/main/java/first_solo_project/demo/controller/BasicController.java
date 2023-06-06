@@ -22,6 +22,7 @@ public class BasicController {
         model.addAttribute("id",id);
         return "question2";
     }
+
 }
 //    }
 //    @GetMapping("hello-mvc")
