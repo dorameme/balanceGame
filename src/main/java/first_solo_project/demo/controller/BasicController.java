@@ -1,5 +1,9 @@
 package first_solo_project.demo.controller;
 
+import first_solo_project.demo.member.Member;
+import first_solo_project.demo.member.MemberRepository;
+import first_solo_project.demo.member.MemberService;
+import first_solo_project.demo.member.MemberServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class BasicController {
+
+    MemberService ms=new MemberServiceImpl(new MemberRepository());
+
     @GetMapping("hello")
     public String hello(Model model) {
         model.addAttribute("data", "hello!!");
@@ -18,8 +25,14 @@ public class BasicController {
     }
     @PostMapping("question")
     public String question(HttpServletRequest httpServletRequestModel,Model model){
+
         String id= httpServletRequestModel.getParameter("name");
+        Member mem=new Member();
+        mem.setName(id);
         model.addAttribute("id",id);
+        if(ms.join(mem)==false){
+            return "error";
+        }
         return "question2";
     }
 

@@ -1,11 +1,18 @@
 package first_solo_project.demo.member;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MemberRepository {
-    HashMap <String, Long> store=new HashMap<>();
+    private List<Member> store = new ArrayList<>();
+    public boolean saveMember(Member member){
 
-    public void saveMember(Member member){
-        store.put(member.getName(), member.getRanking());
+        if(store.contains(member.getName())){
+            return false;
+        }
+        store.add(member);
+        return true;
     }
+
 }
