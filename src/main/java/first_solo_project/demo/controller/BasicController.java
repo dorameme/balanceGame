@@ -39,5 +39,12 @@ public class BasicController {
         System.out.println(ms.join(mem)+" "+ms.sizeOfStore()+"q2로");
         return "question3";
     }
-
+//    @GetMapping("next")
+//    public String question4(HttpServletRequest httpServletRequestModel, Model model) {
+//
+//        String id= httpServletRequestModel.getParameter("name");
+//        model.addAttribute("id", id);
+//        System.out.println(id);
+//        return "question4";
+//    }
 }
