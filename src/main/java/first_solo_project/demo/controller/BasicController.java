@@ -37,7 +37,7 @@ public class BasicController {
             return "error";
         }
         System.out.println(ms.join(mem)+" "+ms.sizeOfStore()+"q2로");
-        return "question2";
+        return "question3";
     }
 
 }

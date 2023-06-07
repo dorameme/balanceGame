@@ -3,26 +3,115 @@
 <head>
     <title>Hello</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="button.css"/>
 </head>
+
+
+
+
+<div class="container">
+
 <body>
+<div class="my-div">
+    <p>
+        <h1>
+            <p th:text="${id}+'님이 오랜만에 아주아주 꾸미고 밖에 나갔는데...'"><br></p>
+        </h1>
+        <h2>
+            <br>
+            <br>
+            1. 같은 옷을 입은 사람 50명을 길가면서 마주침<br>
+            2. 정말 맘에 안드는 이성이 번호를 5번씩이나 물어봄<br>
+        </h2>
 
-<p th:text="${id}+'님이 오랜만에 아주아주 꾸미고 밖에 나갔는데...'"><br></p>
-1. 같은 옷을 입은 사람 50명을 길가면서 마주침<br>
-2. 정말 맘에 안드는 이성이 번호를 5번씩이나 물어봄<br>
-
-<div class="cd-switch">
-    <h2>Do you want to save the changes?</h2>
-    <div class="switch">
-        <input type="radio" name="choice" id="yes" checked>
-        <label for="yes">1번</label>
-        <input type="radio" name="choice" id="no">
-        <label for="no">2번</label>
-        <span class="switchFilter"></span>
-    </div>
+</div>
+</body>
 </div>
 
+<style type="text/css">
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:700);
+html, body{ font-family : Roboto; height: 100%; width: 100%; margin: 0;}
+
+	.my-div {
+	  text-align : center;
+
+	  padding : 10px 0;
+
+	}
+
+#holder{
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  background: white;
+  padding: 10px;
+  width: 250px;
+  margin: 0 auto;
+  position: relative;
+  top: 30%;
+  transform: translateY(-65%);
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
+  border-radius: 2px;
+}
+#holder .button {
+  background: #3D4C53;
+  margin : 20px auto;
+  width : 200px;
+  height : 50px;
+  overflow: hidden;
+  text-align : center;
+  transition : .2s;
+  cursor : pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+#holder .btnTwo {
+  position : relative;
+  width : 200px;
+  height : 100px;
+  margin-top: -100px;
+  padding-top: 2px;
+  background : #26A69A;
+  left : -250px;
+  transition : .3s;
+}
+#holder .btnText {
+  color : white;
+  transition : .3s;
+}
+#holder .btnText2 {
+  margin-top : 63px;
+  margin-right : -130px;
+  color : #FFF;
+}
+#holder .button:hover .btnTwo{ /*When hovering over .button change .btnTwo*/
+  left: -130px;
+}
+#holder .button:hover .btnText{ /*When hovering over .button change .btnText*/
+  margin-left : 65px;
+}
+#holder .button:active { /*Clicked and held*/
+  box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
+}
+
+</style>
+<div id="holder">
+
+    <div class="button">
+        <p class="btnText">READY?</p>
+        <div class="btnTwo">
+            <p class="btnText2">GO!</p>
+        </div>
+    </div>
+
+    <div class="button">
+        <p class="btnText">CANCEL</p>
+        <div class="btnTwo">
+            <p class="btnText2">X</p>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
